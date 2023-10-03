@@ -35,7 +35,7 @@ resource "yandex_compute_instance" "master" {
   name = "master-${local.env}"
   hostname = "master-${local.env}"
   zone     = var.YC_ZONE
-  platform_id = standard-v3
+  platform_id = "standard-v3"
   resources {
     cores  = 2
     memory = 2
@@ -62,7 +62,7 @@ resource "yandex_compute_instance" "worker1" {
   name = "worker1-${local.env}"
   hostname = "worker1-${local.env}"
   zone     = var.YC_ZONE
-  platform_id = standard-v3
+  platform_id = "standard-v3"
   resources {
     cores  = 2
     memory = 2
@@ -85,11 +85,11 @@ resource "yandex_compute_instance" "worker1" {
 }
 
 # worker node
-resource "yandex_compute_instance" "worker1" {
+resource "yandex_compute_instance" "worker2" {
   name = "worker2-${local.env}"
   hostname = "worker2-${local.env}"
   zone     = var.YC_ZONE
-  platform_id = standard-v3
+  platform_id = "standard-v3"
   resources {
     cores  = 2
     memory = 2
