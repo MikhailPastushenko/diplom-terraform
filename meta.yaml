@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: mikhail
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDB/fAX5Bq2wc5zoAHYSoLGLPyK7RsvR9xev1+tvxiKnWYHQHx0412+l1Cq2sbyGcuP5Vnsmhuu1hsxBU/zMrtFB+LES6RFdgh3imFA0YcmyUn+bKNh8gLQ7KNX/QuLvololE0Ihzn9csNpoH8kzQE4jJt8Ulq6mUD26lEj+ba5xbHWazYJzbxoddVmWvQ0Kot8Mo/V5vcWtFm1NvifaEeJnPzrRIrrNMQdf/1JkpwRv82KrWCvQc0qTvF90wAzxwjLe87L1I3RMl8ey6Z2nBKuCPUMseubDG0elBHK7fc/Cp78YTRcs2P948q3qeu4kCOODfRp455+GubMC0IrhKkBptl7FNc8f1AZM9KA78Gx4JFD0eHFNuOfeNuAjs3k6XiuxYP9vHQbOxRpefA1g+gmA16Uf/LCno3q95vORg3H+LWFstyJJ3Pz7vUXIqfY3DD4LIyRrB9K63yFunp6or/8WzeUZDg9OOjJ/s8qWDcE82Ypgw6Zwk/EEv1GYw+0CG8= mikhail@yandex-cloud

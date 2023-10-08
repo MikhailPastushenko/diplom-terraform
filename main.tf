@@ -26,9 +26,6 @@ resource "yandex_vpc_subnet" "private-subnet" {
 
 ## kubernetes cluster VMs
 
-data "yandex_compute_image" "ubuntu" {
-  family = "ubuntu-2204-lts"
-}
 
 # master node
 resource "yandex_compute_instance" "master" {
@@ -43,7 +40,7 @@ resource "yandex_compute_instance" "master" {
   }
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.id
+      image_id = "fd80bm0rh4rkepi5ksdi"
       size = 50
     }
   }
@@ -52,10 +49,11 @@ resource "yandex_compute_instance" "master" {
     nat = true  
   }
   metadata = {
-    ssh-keys = "mikhail:${file("~/.ssh/id_rsa.pub")}"
+    user-data = "${file("meta.yaml")}"
     serial-port-enable = 1
   }
 }
+
 
 # worker node
 resource "yandex_compute_instance" "worker1" {
@@ -69,8 +67,8 @@ resource "yandex_compute_instance" "worker1" {
     core_fraction = 100
   }
   boot_disk {
-    initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.id
+    initialize_params { 
+      image_id = "fd80bm0rh4rkepi5ksdi"
       size = 50
     }
   }
@@ -79,7 +77,7 @@ resource "yandex_compute_instance" "worker1" {
     nat = true
   }
   metadata = {
-    ssh-keys = "mikhail:${file("~/.ssh/id_rsa.pub")}"
+    user-data = "${file("meta.yaml")}"
     serial-port-enable = 1
   }
 }
@@ -97,7 +95,7 @@ resource "yandex_compute_instance" "worker2" {
   }
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.id
+      image_id = "fd80bm0rh4rkepi5ksdi"
       size = 50
     }
   }
@@ -106,7 +104,7 @@ resource "yandex_compute_instance" "worker2" {
     nat = true
   }
   metadata = {
-    ssh-keys = "mikhail:${file("~/.ssh/id_rsa.pub")}"
+    user-data = "${file("meta.yaml")}"
     serial-port-enable = 1
   }
 }
